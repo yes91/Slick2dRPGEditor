@@ -1,13 +1,14 @@
 package databaseeditor;
 
 
-public class Item {
-	public static enum Targets {SINGLE_PLAYER, WHOLE_PARTY, SINGLE_ENEMY, WHOLE_ENEMY_PARTY}
+public abstract class Item {
+	
+    public static enum Targets {SINGLE_PLAYER, WHOLE_PARTY, SINGLE_ENEMY, WHOLE_ENEMY_PARTY}
     
     private boolean useable;
     private String name;
-    private String type;
-    private int index;
+    private int price;
+    private int gid;
 
     
     
@@ -15,7 +16,20 @@ public class Item {
     public Item(String name, boolean use) {
       this.name = name;
       this.useable = use;
+      this.price = 0;
         
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+    
+    public void setName(String name){
+        this.name = name;
     }
     
     public String getName(){
@@ -23,24 +37,18 @@ public class Item {
         return name;
     }
     
-    public void setType(String t){
-        
-        type = t;
-    }
-    
-    public String getType(){
-        
-        return type;
-    }
-    
     public boolean isUseable(){
      
         return useable;
     }
     
-    public void setIndex(int n){
+    public void setGID(int n){
         
-        index = n;
+        gid = n;
+    }
+    
+    public int getGID(){
+        return gid;
     }
     
     @Override

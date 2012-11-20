@@ -18,6 +18,10 @@ public class Consumable extends Item {
         this.type = type;
     }
     
+    public String getEffect(){
+        return effect;
+    }
+    
     public void setEffect(String s){
         
         effect = s;

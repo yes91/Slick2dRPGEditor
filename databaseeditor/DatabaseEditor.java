@@ -12,6 +12,7 @@ package databaseeditor;
 import databaseeditor.panel.ActorPanel;
 import databaseeditor.panel.DepPanel;
 import databaseeditor.panel.ClassPanel;
+import databaseeditor.panel.ItemPanel;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -23,6 +24,11 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JFileChooser;
@@ -51,8 +57,12 @@ public class DatabaseEditor extends JFrame implements ActionListener, MouseMotio
      private JFileChooser fc;
 
     public DatabaseEditor() {
-        ItemReader.populateItems();
+        //ItemReader.populateItems();
+        //ItemReader.binWrite();
+        ItemReader.binRead();
+        //System.out.println(ItemReader.items);
         initUI();
+        //readTest();
     }
 
     public final void initUI() {
@@ -82,7 +92,7 @@ public class DatabaseEditor extends JFrame implements ActionListener, MouseMotio
                 "Still does nothing");
         tabbedPane.setMnemonicAt(2, KeyEvent.VK_3);
         
-        JComponent panel4 = makeTextPanel("Panel #4");
+        JComponent panel4 = new ItemPanel();
         tabbedPane.addTab("Items", null, panel4,
                 "Still does nothing");
         tabbedPane.setMnemonicAt(3, KeyEvent.VK_4);
@@ -232,6 +242,24 @@ public class DatabaseEditor extends JFrame implements ActionListener, MouseMotio
             }  
         }
         repaint();
+    }
+    
+    public void readTest(){
+        try {
+            ObjectInputStream items = null;
+            try {
+                items = new ObjectInputStream(new FileInputStream(new File("Items.rvdata")));
+            } catch (IOException ex) {
+                Logger.getLogger(DatabaseEditor.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            System.out.println(items.readUTF());
+            items.skipBytes(211);
+            //System.out.println(items.);
+            items.close();
+            System.exit(0);
+        } catch (IOException ex) {
+            Logger.getLogger(DatabaseEditor.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
         
 
