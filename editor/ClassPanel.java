@@ -2,13 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package databaseeditor.panel;
+package editor;
 
-import databaseeditor.ItemReader;
-import databaseeditor.PlayerClass;
-import databaseeditor.PlayerClass.Position;
-import databaseeditor.Weapon;
-import databaseeditor.CheckListItem;
+import engine.GameClass;
+import engine.GameClass.Position;
+import engine.ItemReader;
+import engine.Weapon;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,7 +18,6 @@ import java.util.ArrayList;
 import javax.swing.AbstractListModel;
 import javax.swing.JCheckBox;
 import javax.swing.JList;
-import javax.swing.JOptionPane;
 import javax.swing.ListCellRenderer;
 import javax.swing.ListSelectionModel;
 
@@ -39,26 +37,25 @@ public class ClassPanel extends javax.swing.JPanel {
     private ArrayList<CheckListItem> list3;
     
     private String[] classNames;
-    private ArrayList<PlayerClass> classes;
-    
+    private ArrayList<GameClass> classes;
     public ClassPanel() {
         maxClasses = 2;
         classes = new ArrayList<>();
         if(!(new File("/class.dat").isFile())){
-            PlayerClass mage = new PlayerClass();
+            GameClass mage = new GameClass();
             mage.className = "Mage";
             for(int i = 0; i < ItemReader.items.size(); i++){
                 if(ItemReader.items.get(i) instanceof Weapon){
                 mage.weapons.put(i, true);
-                mage.weaponsclist.add(new CheckListItem(ItemReader.items.get(i).getName()));
+                //mage.weaponsclist.add(new CheckListItem(ItemReader.items.get(i).getName()));
                 }
             }
-            PlayerClass swordsman = new PlayerClass();
+            GameClass swordsman = new GameClass();
             swordsman.className = "Swordsman";
             for(int i = 0; i < ItemReader.items.size(); i++){
                 if(ItemReader.items.get(i) instanceof Weapon){
                 swordsman.weapons.put(i, false);
-                swordsman.weaponsclist.add(new CheckListItem(ItemReader.items.get(i).getName()));
+                //swordsman.weaponsclist.add(new CheckListItem(ItemReader.items.get(i).getName()));
                 }
             }
             classes.add(mage);
@@ -172,8 +169,8 @@ public class ClassPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jList1);
 
         jList3.setModel(new AbstractListModel() {
-            public int getSize() { return classes.get(Math.max(jList1.getSelectedIndex(), 0)).weaponsclist.size(); }
-            public Object getElementAt(int i) { return classes.get(Math.max(jList1.getSelectedIndex(), 0)).weaponsclist.get(i);  }
+            public int getSize() { return 0;/*classes.get(Math.max(jList1.getSelectedIndex(), 0)).weaponsclist.size();*/ }
+            public Object getElementAt(int i) { return null;/*classes.get(Math.max(jList1.getSelectedIndex(), 0)).weaponsclist.get(i);*/  }
         });
         jList3.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane3.setViewportView(jList3);
@@ -332,12 +329,12 @@ public class ClassPanel extends javax.swing.JPanel {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        PlayerClass pclass = new PlayerClass();
+        GameClass pclass = new GameClass();
             pclass.className = "NewClass";
             for(int i = 0; i < ItemReader.items.size(); i++){
                 if(ItemReader.items.get(i) instanceof Weapon){
                 pclass.weapons.put(i, true);
-                pclass.weaponsclist.add(new CheckListItem(ItemReader.items.get(i).getName()));
+                //pclass.weaponsclist.add(new CheckListItem(ItemReader.items.get(i).getName()));
                 }
             }
             classes.add(pclass);

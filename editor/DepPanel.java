@@ -2,9 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package databaseeditor.panel;
+package editor;
 
-import databaseeditor.CheckListItem;
+import editor.CheckListItem;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.HashMap;

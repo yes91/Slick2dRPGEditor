@@ -136,7 +136,7 @@
         <Component class="javax.swing.JList" name="jList3">
           <Properties>
             <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="new AbstractListModel() {&#xd;&#xa;            public int getSize() { return classes.get(Math.max(jList1.getSelectedIndex(), 0)).weaponsclist.size(); }&#xd;&#xa;            public Object getElementAt(int i) { return classes.get(Math.max(jList1.getSelectedIndex(), 0)).weaponsclist.get(i);  }&#xd;&#xa;        }" type="code"/>
+              <Connection code="new AbstractListModel() {&#xd;&#xa;            public int getSize() { return 0;/*classes.get(Math.max(jList1.getSelectedIndex(), 0)).weaponsclist.size();*/ }&#xd;&#xa;            public Object getElementAt(int i) { return null;/*classes.get(Math.max(jList1.getSelectedIndex(), 0)).weaponsclist.get(i);*/  }&#xd;&#xa;        }" type="code"/>
             </Property>
             <Property name="selectionMode" type="int" value="0"/>
           </Properties>

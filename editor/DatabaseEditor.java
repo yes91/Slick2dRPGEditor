@@ -2,19 +2,14 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package databaseeditor;
+package editor;
 
 /**
  *
  * @author Kieran
  */
 
-import databaseeditor.panel.ActorPanel;
-import databaseeditor.panel.DepPanel;
-import databaseeditor.panel.ClassPanel;
-import databaseeditor.panel.ItemPanel;
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
@@ -30,6 +25,7 @@ import java.io.ObjectInputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -59,7 +55,7 @@ public class DatabaseEditor extends JFrame implements ActionListener, MouseMotio
     public DatabaseEditor() {
         //ItemReader.populateItems();
         //ItemReader.binWrite();
-        ItemReader.binRead();
+        //ItemReader.binRead();
         //System.out.println(ItemReader.items);
         initUI();
         //readTest();
@@ -76,13 +72,19 @@ public class DatabaseEditor extends JFrame implements ActionListener, MouseMotio
         ImageIcon iconExit = new ImageIcon(getClass().getResource("exit.png"));
         
         JTabbedPane tabbedPane = new JTabbedPane();
+        JButton play = new JButton("Play");
+        play.addActionListener(new ActionListener(){ public void actionPerformed(ActionEvent e){
+            
+        }});
+        
+        menubar.add(play);
         
         JComponent panel1 = new ActorPanel();
         tabbedPane.addTab("Actors", null, panel1,
                 "Does nothing");
         tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
         
-        JComponent panel2 = new ClassPanel();
+        /*JComponent panel2 = new ClassPanel();
         tabbedPane.addTab("Classes", null, panel2,
                 "Does twice as much nothing");
         tabbedPane.setMnemonicAt(1, KeyEvent.VK_2);
@@ -99,7 +101,7 @@ public class DatabaseEditor extends JFrame implements ActionListener, MouseMotio
         
         JComponent panel5 = makeTextPanel(
                 "Panel #5 (has a preferred size of 410 x 50).");
-        panel4.setPreferredSize(new Dimension(410, 50));
+        //panel4.setPreferredSize(new Dimension(410, 50));
         tabbedPane.addTab("Weapons", null, panel5,
                 "Does nothing at all");
         tabbedPane.setMnemonicAt(4, KeyEvent.VK_5);
@@ -142,7 +144,7 @@ public class DatabaseEditor extends JFrame implements ActionListener, MouseMotio
         JComponent panel13 = makeTextPanel("Panel #13");
         tabbedPane.addTab("Terms", null, panel13,
                 "Still does nothing");
-        tabbedPane.setMnemonicAt(12, KeyEvent.VK_F4);
+        tabbedPane.setMnemonicAt(12, KeyEvent.VK_F4);*/
         
         //Add the tabbed pane to this panel.
         add(tabbedPane);
