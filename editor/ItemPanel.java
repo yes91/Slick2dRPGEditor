@@ -17,10 +17,9 @@ public class ItemPanel extends javax.swing.JPanel {
     /**
      * Creates new form ItemPanel
      */
-    private ArrayList<Consumable> consumables;
+    public static ArrayList<Consumable> consumables = new ArrayList<>();
     
-    public ItemPanel(ArrayList<Consumable> list) {
-        consumables = list;
+    public ItemPanel() {
         initComponents();
     }
     
@@ -127,6 +126,8 @@ public class ItemPanel extends javax.swing.JPanel {
         jCheckBox2 = new javax.swing.JCheckBox();
         jCheckBox3 = new javax.swing.JCheckBox();
         jCheckBox4 = new javax.swing.JCheckBox();
+
+        ItemPanel.setMinimumSize(new java.awt.Dimension(895, 658));
 
         jButton7.setText("Cancel");
 
@@ -280,15 +281,9 @@ public class ItemPanel extends javax.swing.JPanel {
                     .addComponent(NewItem, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
                 .addGroup(ItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ItemPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton8)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton7)
-                        .addGap(10, 10, 10))
-                    .addGroup(ItemPanelLayout.createSequentialGroup()
                         .addGroup(ItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(ItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(ItemPanelLayout.createSequentialGroup()
@@ -377,7 +372,13 @@ public class ItemPanel extends javax.swing.JPanel {
                                             .addComponent(jCheckBox1)
                                             .addComponent(jCheckBox3)
                                             .addComponent(jCheckBox4))))))
-                        .addContainerGap(372, Short.MAX_VALUE))))
+                        .addContainerGap(372, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ItemPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton8)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton7)
+                        .addContainerGap())))
         );
         ItemPanelLayout.setVerticalGroup(
             ItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -500,7 +501,7 @@ public class ItemPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 651, Short.MAX_VALUE)
+            .addGap(0, 658, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
