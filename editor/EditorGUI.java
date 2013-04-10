@@ -7,6 +7,7 @@ package editor;
 import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryo.io.Input;
 import engine.Consumable;
+import engine.EffectAnimation;
 import engine.RPG;
 import engine.Weapon;
 import java.awt.Image;
@@ -21,6 +22,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import org.newdawn.slick.util.ResourceLoader;
+import org.objenesis.strategy.StdInstantiatorStrategy;
 
 /**
  *
@@ -29,6 +31,9 @@ import org.newdawn.slick.util.ResourceLoader;
 public class EditorGUI extends javax.swing.JFrame {
     
     public static Kryo kryo = new Kryo();
+    static {
+        kryo.setInstantiatorStrategy(new StdInstantiatorStrategy());
+    }
     
     private volatile Thread runner = new Thread(){
                     @Override
@@ -50,6 +55,7 @@ public class EditorGUI extends javax.swing.JFrame {
         initComponents();
         jTabbedPane1.setComponentAt(3, new ItemPanel());
         jTabbedPane1.setComponentAt(4, new WeaponPanel());
+        jTabbedPane1.setComponentAt(9, new AnimationPanel());
         
         JButton run = new JButton("Run");
         run.addActionListener(new ActionListener(){
@@ -71,14 +77,14 @@ public class EditorGUI extends javax.swing.JFrame {
         jMenuBar1.add(stop);
     }
     
-    public static ImageIcon subImage(ImageIcon ic, int index) {
+    public static ImageIcon subImage(ImageIcon ic, int columns, int index, int size, int scale) {
         Image i = ic.getImage();
         BufferedImage image = new BufferedImage(i.getWidth(null), i.getHeight(null), BufferedImage.TYPE_INT_ARGB);
         image.getGraphics().drawImage(i, 0, 0, null);
-        int frameX = (index % 16) * 24;
-        int frameY = (index / 16) * 24;
-        Image result = image.getSubimage(frameX, frameY, 24, 24);
-        return new ImageIcon(result.getScaledInstance(48, 48, Image.SCALE_DEFAULT));
+        int frameX = (index % columns) * size;
+        int frameY = (index / columns) * size;
+        Image result = image.getSubimage(frameX, frameY, size, size);
+        return new ImageIcon(result.getScaledInstance(size * scale, size * scale, Image.SCALE_DEFAULT));
     }
 
 
@@ -753,6 +759,7 @@ public class EditorGUI extends javax.swing.JFrame {
     public static void load(){
         try {
             readItems();
+            readAnimations();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(EditorGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -770,6 +777,15 @@ public class EditorGUI extends javax.swing.JFrame {
         for(int i = 0; i < lengthWeps; i++){
             Weapon item = kryo.readObject(weps, Weapon.class);
             WeaponPanel.weapons.add(item);
+        }
+    }
+    
+    private static void readAnimations(){
+        Input input = new Input(ResourceLoader.getResourceAsStream("data/animations.jrdata"));
+        int length = input.readInt();
+        for(int i = 0; i < length; i++){
+            EffectAnimation ani = kryo.readObject(input, EffectAnimation.class);
+            AnimationPanel.animations.add(ani);
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables

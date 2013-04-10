@@ -16,12 +16,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="895" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="901" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="1" max="32767" attributes="0"/>
                   <Component id="ItemPanel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="2" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -179,7 +179,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="372" max="32767" attributes="0"/>
+                          <EmptySpace pref="375" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
@@ -398,7 +398,7 @@
         <Component class="javax.swing.JButton" name="ItemIconButton">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="EditorGUI.subImage(EditorGUI.iconSet, consumables.get(ItemList.getSelectedIndex()).getIndex())" type="code"/>
+              <Connection code="EditorGUI.subImage(EditorGUI.iconSet, 16, consumables.get(ItemList.getSelectedIndex()).getIndex(), 24, 2)" type="code"/>
             </Property>
           </Properties>
           <Events>

@@ -167,7 +167,7 @@ public class ItemPanel extends javax.swing.JPanel {
 
         jLabel13.setText("Icon:");
 
-        ItemIconButton.setIcon(EditorGUI.subImage(EditorGUI.iconSet, consumables.get(ItemList.getSelectedIndex()).getIndex()));
+        ItemIconButton.setIcon(EditorGUI.subImage(EditorGUI.iconSet, 16, consumables.get(ItemList.getSelectedIndex()).getIndex(), 24, 2));
         ItemIconButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ItemIconButtonActionPerformed(evt);
@@ -372,7 +372,7 @@ public class ItemPanel extends javax.swing.JPanel {
                                             .addComponent(jCheckBox1)
                                             .addComponent(jCheckBox3)
                                             .addComponent(jCheckBox4))))))
-                        .addContainerGap(372, Short.MAX_VALUE))
+                        .addContainerGap(375, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ItemPanelLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton8)
@@ -492,12 +492,12 @@ public class ItemPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 895, Short.MAX_VALUE)
+            .addGap(0, 901, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 1, Short.MAX_VALUE)
                     .addComponent(ItemPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 2, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -530,7 +530,7 @@ public class ItemPanel extends javax.swing.JPanel {
         ItemPlace.setSelectedItem(getPlace());
         ItemPrice.setValue(consumables.get(ItemList.getSelectedIndex()).getPrice());
         ItemSpeed.setValue(consumables.get(ItemList.getSelectedIndex()).getSpeed());
-        ItemIconButton.setIcon(EditorGUI.subImage(EditorGUI.iconSet, consumables.get(ItemList.getSelectedIndex()).getIndex()));
+        ItemIconButton.setIcon(EditorGUI.subImage(EditorGUI.iconSet, 16, consumables.get(ItemList.getSelectedIndex()).getIndex(), 24, 2));
     }//GEN-LAST:event_ItemListValueChanged
 
     private void ItemNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemNameFieldActionPerformed

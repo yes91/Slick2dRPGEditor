@@ -104,7 +104,7 @@ public class WeaponPanel extends javax.swing.JPanel {
 
         jLabel13.setText("Icon:");
 
-        ItemIconButton.setIcon(EditorGUI.subImage(EditorGUI.iconSet, weapons.get(ItemList.getSelectedIndex()).getIndex()));
+        ItemIconButton.setIcon(EditorGUI.subImage(EditorGUI.iconSet, 16, weapons.get(ItemList.getSelectedIndex()).getIndex(), 24, 2));
         ItemIconButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ItemIconButtonActionPerformed(evt);
@@ -176,27 +176,26 @@ public class WeaponPanel extends javax.swing.JPanel {
                         .addGap(10, 10, 10))
                     .addGroup(ItemPanelLayout.createSequentialGroup()
                         .addGroup(ItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(ItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(ItemPanelLayout.createSequentialGroup()
-                                    .addGroup(ItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel12)
-                                        .addComponent(ItemNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel14))
-                                    .addGap(52, 52, 52)
-                                    .addGroup(ItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(ItemPanelLayout.createSequentialGroup()
-                                            .addGap(10, 10, 10)
-                                            .addComponent(ItemIconButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jLabel13)))
-                                .addComponent(ItemDescField, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(ItemPanelLayout.createSequentialGroup()
-                                    .addGroup(ItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel20)
-                                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(ItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(ItemPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel17))))
+                            .addGroup(ItemPanelLayout.createSequentialGroup()
+                                .addGroup(ItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel12)
+                                    .addComponent(ItemNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel14))
+                                .addGap(52, 52, 52)
+                                .addGroup(ItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(ItemPanelLayout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(ItemIconButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel13)))
+                            .addComponent(ItemDescField, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(ItemPanelLayout.createSequentialGroup()
+                                .addGroup(ItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel20)
+                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(ItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ItemPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel17)))
                             .addGroup(ItemPanelLayout.createSequentialGroup()
                                 .addGroup(ItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel29)
@@ -338,7 +337,7 @@ public class WeaponPanel extends javax.swing.JPanel {
         //ItemPlace.setSelectedItem(getPlace());
         ItemPrice.setValue(weapons.get(ItemList.getSelectedIndex()).getPrice());
         //ItemSpeed.setValue(consumables.get(ItemList.getSelectedIndex()).getSpeed());
-        ItemIconButton.setIcon(EditorGUI.subImage(EditorGUI.iconSet, weapons.get(ItemList.getSelectedIndex()).getIndex()));
+        ItemIconButton.setIcon(EditorGUI.subImage(EditorGUI.iconSet, 16, weapons.get(ItemList.getSelectedIndex()).getIndex(), 24, 2));
     }//GEN-LAST:event_ItemListValueChanged
 
     private void ItemNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemNameFieldActionPerformed
